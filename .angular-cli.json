@@ -5,8 +5,9 @@
   },
   "apps": [
     {
+      "name": "ngClient",
       "root": "src/client",
-      "outDir": "dist",
+      "outDir": "dist/client",
       "assets": [
         "assets"
       ],
@@ -21,6 +22,21 @@
         "assets/sass/main.scss",
         "assets/sass/material.scss"
       ],
+      "scripts": []
+    },
+    {
+      "name": "ngServer",
+      "platform": "server",
+      "root": "src/client",
+      "outDir": "dist/server",
+      "assets": [],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [],
       "scripts": []
     }
   ],
@@ -39,7 +55,7 @@
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
+      "project": "src/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],

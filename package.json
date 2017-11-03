@@ -4,11 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test": "ng test && ng e2e",
+    "build": "npm run build:ngClient && npm run build:ngServer && npm run build:express",
+    "build:ngClient": "ng build --prod --app ngClient --output-hashing=false",
+    "build:ngServer": "ng build --prod --app ngServer --output-hashing=false",
+    "build:express": "webpack --config webpack.config.js --progress --colors",
+    "serve:client": "ng serve",
+    "serve:universal": "node dist/main",
+    "start": "npm run serve:universal"
   },
   "private": true,
   "dependencies": {
@@ -23,9 +27,13 @@
     "@angular/material": "^2.0.0-beta.12",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/platform-server": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@nguniversal/express-engine": "^5.0.0-beta.5",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
+    "ts-loader": "^3.1.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
