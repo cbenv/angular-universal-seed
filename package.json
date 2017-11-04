@@ -11,8 +11,8 @@
     "build:ngServer": "ng build --prod --app ngServer --output-hashing=false",
     "build:express": "webpack --config webpack.config.js --progress --colors",
     "serve:client": "ng serve",
-    "serve:universal": "node dist/main",
-    "start": "npm run serve:universal"
+    "serve:ssr": "node dist/main",
+    "start": "npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
@@ -56,5 +56,12 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
+  },
+  "config": {
+    "engine-strict": true
+  },
+  "engines": {
+    "node": ">= 6.11.0",
+    "npm": ">= 3"
   }
 }
