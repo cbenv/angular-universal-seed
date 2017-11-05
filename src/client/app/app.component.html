@@ -15,7 +15,7 @@
         <div id="header-menu" class="toolbar-menu" fxShow fxShow.xs="false">
           <a mat-button *ngFor="let item of menu" routerLink="{{item.path}}" routerLinkActive="active">{{item.title}}</a>
         </div>
-        <button mat-icon-button fxHide fxHide.xs="false" (click)="sideMenu.open()"><mat-icon>menu</mat-icon></button>
+        <button mat-icon-button fxHide fxHide.xs="false" (click)="sideMenu.open()"><mat-icon svgIcon="menu"></mat-icon></button>
       </div>
     </mat-toolbar>
   

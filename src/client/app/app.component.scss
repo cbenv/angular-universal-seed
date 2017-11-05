@@ -1,0 +1,15 @@
+#content {
+  min-height: calc(100vh - 64px);
+}
+
+#side-menu {
+  width: 16em;
+}
+
+.mat-toolbar .container {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
