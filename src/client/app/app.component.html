@@ -1,4 +1,4 @@
-<mat-sidenav-container id="angular-universal-seed" class="mat-typography">
+<mat-sidenav-container id="angular-universal-seed" class="mat-typography" ngClass="{{theme}}">
   
     <!-- Side Menu -->
     <mat-sidenav id="side-menu" #sideMenu mode="over" opened="false">
@@ -14,6 +14,7 @@
         <span class="spacer"></span>
         <div id="header-menu" class="toolbar-menu" fxShow fxShow.xs="false">
           <a mat-button *ngFor="let item of menu" routerLink="{{item.path}}" routerLinkActive="active">{{item.title}}</a>
+          <button mat-icon-button (click)="toggleTheme()"><mat-icon svgIcon="invert-colors"></mat-icon></button>
         </div>
         <button mat-icon-button fxHide fxHide.xs="false" (click)="sideMenu.open()"><mat-icon svgIcon="menu"></mat-icon></button>
       </div>

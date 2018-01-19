@@ -1,6 +1,8 @@
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import {
   MatIconRegistry,
   MatToolbarModule,
@@ -24,7 +26,8 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   exports: [
     MatToolbarModule,
@@ -40,8 +43,9 @@ import {
 })
 export class MaterialModule {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platform: Object) {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private overlayContainer: OverlayContainer, @Inject(PLATFORM_ID) private platform: Object) {
     if (isPlatformBrowser(this.platform)) {
+      overlayContainer.getContainerElement().classList.add('light-theme', 'mat-typography');
       iconRegistry.addSvgIconSet(sanitizer.bypassSecurityTrustResourceUrl('assets/mdi.svg'));
     }
   }
