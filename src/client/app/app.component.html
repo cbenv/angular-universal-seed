@@ -4,6 +4,8 @@
     <mat-sidenav id="side-menu" #sideMenu mode="over" opened="false">
       <mat-nav-list>
         <a mat-list-item *ngFor="let item of menu" routerLink="{{item.path}}" routerLinkActive="active" (click)="sideMenu.close()">{{item.title}}</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item (click)="toggleTheme()">Toggle Theme</a>
       </mat-nav-list>
     </mat-sidenav>
   
