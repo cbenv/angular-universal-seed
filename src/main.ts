@@ -6,16 +6,16 @@ import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import { join } from 'path';
+import { config } from './config/config';
 import { controller } from './server/controller';
 import * as express from 'express';
 
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../dist/server/main.bundle');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || config.node.port || 8080;
 const CLIENT_DIR = join(process.cwd(), 'dist', 'client');
 
 enableProdMode();
 
-const config = require('./config/config.json')
 const app = express();
 
 app.engine('html', ngExpressEngine({
